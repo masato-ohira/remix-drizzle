@@ -18,6 +18,7 @@
     "rules": {
       "recommended": true,
       "suspicious": {
+        "noExplicitAny": "warn",
         "noImplicitAnyLet": "warn"
       },
       "correctness": {

@@ -1,3 +1,5 @@
+import { dbClient } from '@/db/dbClient'
+import { todos } from '@/db/schema'
 import type { LoaderFunctionArgs } from '@remix-run/cloudflare'
 import type { MetaFunction } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
@@ -12,10 +14,10 @@ export const meta: MetaFunction = () => {
   ]
 }
 
-export async function loader({ request }: LoaderFunctionArgs) {
-  const res = await fetch('https://jsonplaceholder.typicode.com/posts')
-  const json = (await res.json()) as PostType[]
-  return take(json, 6)
+export async function loader({ context }: LoaderFunctionArgs) {
+  const db = dbClient(context.cloudflare.env.DB)
+  const res = await db.select().from(todos)
+  return res
 }
 
 export default function Index() {
@@ -24,11 +26,7 @@ export default function Index() {
   return (
     <div>
       <div className="container mx-auto py-8">
-        <div className="grid grid-cols-3 gap-10">
-          {data.map((i) => {
-            return <TopItem key={i.id} item={i} />
-          })}
-        </div>
+        <div className="grid grid-cols-3 gap-10">{JSON.stringify(data)}</div>
       </div>
     </div>
   )
