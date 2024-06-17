@@ -1,12 +1,5 @@
 import { Button } from '@/components/ui/button'
-import { dbClient } from '@/db/dbClient'
-import { todos } from '@/db/schema'
-import type { LoaderFunctionArgs } from '@remix-run/cloudflare'
 import type { MetaFunction } from '@remix-run/node'
-import { useLoaderData } from '@remix-run/react'
-import { take } from 'lodash-es'
-import { TopItem } from './top/TopItem'
-import type { PostType } from './top/types'
 
 export const meta: MetaFunction = () => {
   return [

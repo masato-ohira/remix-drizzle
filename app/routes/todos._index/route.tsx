@@ -4,14 +4,6 @@ import { TodoItem } from './TodoItem'
 import { action } from './action'
 import { loader } from './loader'
 
-// import { useLoaderData } from '@remix-run/react'
-// import { TodoAdd } from './TodoAdd'
-// import { TodoItem } from './TodoItem'
-// import { dispatch } from './actions'
-// export async function action(props: ActionFunctionArgs) {
-//   return dispatch(props)
-// }
-
 export default function TodoPage() {
   const data = useLoaderData<typeof loader>()
 

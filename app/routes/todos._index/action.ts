@@ -1,7 +1,6 @@
 import { drizzleClient } from '@/db/drizzle'
 import { todos } from '@/db/schema'
 import type { ActionFunctionArgs } from '@remix-run/cloudflare'
-
 import { json } from '@remix-run/react'
 import { eq } from 'drizzle-orm'
 
