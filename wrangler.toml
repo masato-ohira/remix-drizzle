@@ -7,4 +7,4 @@ pages_build_output_dir = "./build/client"
 binding = "DB" # i.e. available in your Worker on env.DB
 database_name = "drizzle-todo"
 database_id = "8314dc0a-da28-4737-a893-62d742bf3ade"
-migrations_dir = "./drizzle/migrations"
+migrations_dir = "./app/drizzle/migrations"

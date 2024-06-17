@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button'
 import { dbClient } from '@/db/dbClient'
 import { todos } from '@/db/schema'
 import type { LoaderFunctionArgs } from '@remix-run/cloudflare'
@@ -14,19 +15,15 @@ export const meta: MetaFunction = () => {
   ]
 }
 
-export async function loader({ context }: LoaderFunctionArgs) {
-  const db = dbClient(context.cloudflare.env.DB)
-  const res = await db.select().from(todos)
-  return res
-}
-
 export default function Index() {
-  const data = useLoaderData<typeof loader>()
-
   return (
     <div>
-      <div className="container mx-auto py-8">
-        <div className="grid grid-cols-3 gap-10">{JSON.stringify(data)}</div>
+      <div className="container mx-auto py-32">
+        <div className="center">
+          <a href="/todos">
+            <Button className={'w-48 py-6'}>Todos</Button>
+          </a>
+        </div>
       </div>
     </div>
   )
