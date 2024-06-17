@@ -16,7 +16,7 @@ export default function TodoPage() {
   const data = useLoaderData<typeof loader>()
 
   return (
-    <div className="container max-w-5xl py-8">
+    <div className="container max-w-4xl py-8">
       <div className="hstack justify-end mb-8">
         <TodoAdd />
       </div>
